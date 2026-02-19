@@ -1,19 +1,11 @@
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from models.user_models import User
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
-# -------- Data Model --------
-class User(BaseModel):
-    name: str
-    email: str
-    role: str   # seeker or owner
-
-# Temporary storage (later will be database)
+# Temporary storage
 users = []
 
-
-# -------- Routes --------
 
 # Register a new user
 @router.post("/register")
